@@ -89,7 +89,7 @@ export default function Skills() {
       nivel: "Intermedio",
       parte: "Backend",
       color1: "#000000",
-      color2: "#FFFFFF",
+      color2: "#000000",
     },
     react: {
       name: "React",
@@ -101,15 +101,15 @@ export default function Skills() {
       color1: "#52c0de",
       color2: "#52c0de",
     },
-    git: {
-      name: "Git",
-      description: "Sistema de control de versiones distribuido.",
-      utilidad: "Gestión de código fuente y trabajo colaborativo.",
-      nivel: "Intermedio",
-      parte: "Herramientas",
-      color1: "#f24e29",
-      color2: "#f24e29",
-    },
+      git: {
+        name: "Git",
+        description: "Sistema de control de versiones distribuido.",
+        utilidad: "Gestión de código fuente y trabajo colaborativo.",
+        nivel: "Intermedio",
+        parte: "Herramientas",
+        color1: "#f24e29",
+        color2: "#f24e29",
+      },
     java: {
       name: "Java",
       description:
@@ -173,10 +173,12 @@ export default function Skills() {
     return () => window.removeEventListener("keydown", handleEsc);
   }, []);
 
+  const tech = techInfo[selectedTech];
+
   return (
     <section id="skills" className="pt-20 max-w-5xl mx-auto px-4 text-start">
       <div className="max-w-5xl mx-auto px-4 mt-12 relative">
-        <div className="absolute -top-8 text-mars/20 text-7xl font-bold font-audiowide select-none">
+        <div className="absolute -top-3 md:-top-8 text-mars/20 text-5xl md:text-7xl font-bold font-nasalization select-none">
           SKILLS
         </div>
 
@@ -211,69 +213,106 @@ export default function Skills() {
 
       {selectedTech && (
         <div onClick={closeInfo}>
-          <div className="flex justify-center mt-12 mb-40 px-4">
-            <div
-              className="relative w-full max-w-md p-8 rounded-2xl
+  <div className="flex justify-center mt-12 mb-40 px-4">
+    <div
+      className="relative w-full max-w-md p-8 rounded-2xl
       bg-light-bg-secondary/60 dark:bg-dark-bg/60
-      border border-naranja/30 dark:border-white/20
+      border border-white/20
       backdrop-blur-md shadow-2xl animate-fadeIn
       transition-all duration-300
-      hover:shadow-[0_20px_60px_rgba(0,0,0,0.35)]"
-              onClick={(e) => e.stopPropagation()}
-            >
-              {/* Glow sutil */}
-              <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-naranja/10 to-transparent pointer-events-none"></div>
+      hover:shadow-[0_20px_60px_rgba(0,0,0,0.35)] overflow-hidden"
+      style={{
+        "--glow1": tech.color2,
+        "--glow2": tech.color1,
+      }}
+      onClick={(e) => e.stopPropagation()}
+    >
+      {/* Glow esquina superior derecha */}
+      <div
+        className="absolute -top-10 -right-10 w-60 h-60 rounded-full blur-3xl opacity-20 pointer-events-none"
+        style={{ background: "var(--glow1)" }}
+      />
 
-              {/* Header */}
-              <div className="text-center mb-6">
-                <h2 className="text-4xl md:text-5xl font-extrabold tracking-wide">
-                  {techInfo[selectedTech].name}
-                </h2>
+      {/* Glow esquina inferior izquierda */}
+      <div
+        className="absolute -bottom-10 -left-10 w-40 h-40 rounded-full blur-3xl opacity-20 pointer-events-none"
+        style={{ background: "var(--glow2)" }}
+      />
 
-                {/* Badge */}
-                <span
-                  className="inline-block mt-3 px-4 py-1 text-sm font-semibold tracking-wider uppercase rounded-full
-          bg-naranja/20 text-naranja border border-naranja/30"
-                >
-                  {techInfo[selectedTech].parte}
-                </span>
-              </div>
+      {/* Header */}
+      <div className="text-center mb-6 relative">
+        <h2 className="text-4xl md:text-5xl font-extrabold tracking-wide">
+          {techInfo[selectedTech].name}
+        </h2>
 
-              {/* Divider */}
-              <div className="h-px bg-gradient-to-r from-transparent via-naranja/40 to-transparent mb-6"></div>
+        {/* Badge */}
+        <span
+          className="inline-block mt-3 px-4 py-1 text-sm font-semibold tracking-wider uppercase rounded-full
+          border border-white/20"
+          style={{
+            background: "color-mix(in srgb, var(--glow1) 20%, transparent)",
+            color: "var(--glow1)",
+          }}
+        >
+          {techInfo[selectedTech].parte}
+        </span>
+      </div>
 
-              {/* Contenido */}
-              <div className="space-y-4 text-sm leading-relaxed">
-                <div>
-                  <p className="text-sm uppercase tracking-wider text-naranja/70 mb-1">
-                    Descripción
-                  </p>
-                  <p>{techInfo[selectedTech].description}</p>
-                </div>
+      {/* Divider */}
+      <div
+        className="h-px mb-6"
+        style={{
+          background:
+            "linear-gradient(to right, transparent, var(--glow1), transparent)",
+          opacity: 0.4,
+        }}
+      ></div>
 
-                <div>
-                  <p className="text-sm uppercase tracking-wider text-naranja/70 mb-1">
-                    Utilidad
-                  </p>
-                  <p>{techInfo[selectedTech].utilidad}</p>
-                </div>
-
-                <div className="flex items-center justify-between pt-4">
-                  <span className="text-sm uppercase tracking-wider text-naranja/70">
-                    Nivel
-                  </span>
-
-                  <span
-                    className="px-3 py-1 rounded-full text-xs font-semibold
-            bg-naranja/20 text-naranja border border-naranja/30"
-                  >
-                    {techInfo[selectedTech].nivel}
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
+      {/* Contenido */}
+      <div className="space-y-4 text-sm leading-relaxed">
+        <div>
+          <p
+            className="text-sm uppercase tracking-wider mb-1 font-semibold"
+            style={{ color: "var(--glow1)", opacity: 0.7 }}
+          >
+            Descripción
+          </p>
+          <p className="dark:text-white">{techInfo[selectedTech].description}</p>
         </div>
+
+        <div>
+          <p
+            className="text-sm uppercase tracking-wider mb-1 font-semibold"
+            style={{ color: "var(--glow1)", opacity: 0.7 }}
+          >
+            Utilidad
+          </p>
+          <p className="dark:text-white">{techInfo[selectedTech].utilidad}</p>
+        </div>
+
+        <div className="flex items-center justify-between pt-4">
+          <span
+            className="text-sm uppercase tracking-wider font-semibold"
+            style={{ color: "var(--glow1)", opacity: 0.7 }}
+          >
+            Nivel
+          </span>
+
+          <span
+            className="px-3 py-1 rounded-full text-xs font-semibold border border-white/20"
+            style={{
+              background:
+                "color-mix(in srgb, var(--glow2) 20%, transparent)",
+              color: "var(--glow2)",
+            }}
+          >
+            {techInfo[selectedTech].nivel}
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
       )}
 
       {/* Datos rápidos */}
@@ -319,7 +358,7 @@ export default function Skills() {
 
           <p
             className="text-sm leading-relaxed max-w-xs
-                  text-dark-bg dark:text-gray-400"
+                  text-dark-bg dark:text-white"
           >
             Diseño adaptable para todos los dispositivos y tamaños de pantalla.
           </p>
@@ -343,7 +382,7 @@ export default function Skills() {
 
           <p
             className="text-sm leading-relaxed max-w-xs
-                  text-dark-bg dark:text-gray-400"
+                  text-dark-bg dark:text-white"
           >
             Interfaces accesibles siguiendo WCAG para mejorar la experiencia de
             todos.

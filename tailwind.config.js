@@ -77,8 +77,8 @@ export default {
         sm: 'calc(var(--radius) - 4px)'
       },
       fontFamily: {
-        audiowide: ['"Audiowide"', 'system-ui', 'sans-serif'],
-        nunito: ['"Nunito"', 'system-ui', 'sans-serif']
+        nasalization: ['nasalization', 'system-ui', 'sans-serif'],
+        sans: ['Ubuntu', 'system-ui', 'sans-serif']
       }
     }
   },

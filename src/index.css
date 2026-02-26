@@ -2,9 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'nasalization';
+  src: url('/src/assets/nasalization.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 html{
   scroll-behavior: smooth;
 }
+
+body {
+  @apply font-sans;
+}
+
 @keyframes glitchImg {
   0%, 100% {
     filter: drop-shadow(-1px 0 #EB3E1B) drop-shadow(1px 0 #85112E);
@@ -137,4 +150,18 @@ html{
 }
 .imagen{
   width: 160px;
+}
+
+@keyframes shine {
+  from {
+    background-position: 0% 0%;
+  }
+  to {
+    background-position: 300% 0%;
+  }
+}
+
+.animate-shine {
+  animation: shine 8s linear infinite;
+
 }

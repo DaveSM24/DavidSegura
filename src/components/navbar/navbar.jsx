@@ -52,7 +52,7 @@ export default function Navbar() {
     <nav className="fixed h-full top-0 z-50">
       <div className="hidden h-full px-6 py-16 md:flex flex-col justify-between items-center">
         <h1
-          className="text-6xl font-bold ms-20 tracking-widest font-audiowide relative"
+          className="text-6xl font-bold ms-20 font-nasalization relative tracking-[0.2em]"
           style={{
             color: "#EB3E1B",
             textShadow: `

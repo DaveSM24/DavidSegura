@@ -14,7 +14,7 @@ export default function Contact() {
   return (
     <section id="contact" className="py-20">
       <div className="max-w-5xl mx-auto px-4 mt-20 relative">
-        <div className="absolute -top-3 md:-top-8 text-mars/20 text-5xl md:text-7xl font-bold font-audiowide select-none">
+        <div className="absolute -top-3 md:-top-8 text-mars/20 text-5xl md:text-7xl font-bold font-nasalization select-none">
           CONTACTO
         </div>
 
@@ -25,7 +25,6 @@ export default function Contact() {
             <span className="block w-14 h-1 bg-mars rounded-full mt-1"></span>
           </h2>
         </div>
-      
 
         {/* CONTENEDOR */}
         <div className="flex flex-col md:flex-row items-start gap-10">
@@ -33,8 +32,8 @@ export default function Contact() {
             {/* TEXTO */}
             <p className="mb-6 text-start text-balance text-lg w-full align-middle text-dark-bg-secondary dark:text-light-bg-secondary">
               ¿Quieres colaborar o tienes alguna propuesta? <br />
-              Para cualquier consulta, no dudes en enviarme un mensaje a
-              través del formulario.
+              Para cualquier consulta, no dudes en enviarme un mensaje a través
+              del formulario.
             </p>
             <p className="mb-6 text-start text-balance text-lg w-full align-middle text-dark-bg-secondary dark:text-light-bg-secondary">
               Si no te gustan los formularios, ¡aquí tienes mi correo
@@ -91,13 +90,14 @@ export default function Contact() {
                     />
 
                     <label
-                      className="
-                        absolute left-10 px-1 
-                        text-dark-bg-secondary bg-light-bg/20 dark:bg-dark-bg/30 dark:text-light-bg-secondary pointer-events-none 
-                        transition-colors duration-300
-                        peer-placeholder-shown:top-2.5 peer-placeholder-shown:text-base
-                        peer-focus:-top-3 peer-focus:text-sm peer-focus:text-mars
-                        peer-not-placeholder-shown:-top-3 peer-not-placeholder-shown:text-sm"
+                      className="absolute left-10 z-10
+    text-dark-bg-secondary dark:text-light-bg-secondary
+    pointer-events-none transition-all duration-200
+
+    top-2.5 text-base
+    peer-placeholder-shown:top-2.5 peer-placeholder-shown:text-base
+    peer-focus:-top-5 peer-focus:text-sm peer-focus:text-mars
+    peer-valid:-top-5 peer-valid:text-sm"
                     >
                       Nombre
                     </label>
@@ -127,7 +127,7 @@ export default function Contact() {
                         text-dark-bg-secondary dark:text-light-bg-secondary pointer-events-none transition-all
                         bg-light-bg/20 dark:bg-dark-bg/30
                         peer-placeholder-shown:top-2.5 peer-placeholder-shown:text-base
-                        peer-focus:-top-3 peer-focus:text-sm peer-focus:text-mars
+                        peer-focus:-top-5 peer-focus:text-sm peer-focus:text-mars
                         peer-not-placeholder-shown:-top-3 peer-not-placeholder-shown:text-sm
                       "
                     >
@@ -165,7 +165,7 @@ export default function Contact() {
                         text-dark-bg-secondary dark:text-light-bg-secondary pointer-events-none transition-all
                         bg-light-bg/20 dark:bg-dark-bg/30
                         peer-placeholder-shown:top-2.5 peer-placeholder-shown:text-base
-                        peer-focus:-top-3 peer-focus:text-sm peer-focus:text-mars
+                        peer-focus:-top-5 peer-focus:text-sm peer-focus:text-mars
                         peer-not-placeholder-shown:-top-3 peer-not-placeholder-shown:text-sm
                       "
                   >
@@ -198,7 +198,7 @@ export default function Contact() {
                       text-dark-bg-secondary dark:text-light-bg-secondary pointer-events-none transition-colors duration-300
                       bg-light-bg/20 dark:bg-dark-bg/30
                       peer-placeholder-shown:top-2.5 peer-placeholder-shown:text-base
-                      peer-focus:-top-3 peer-focus:text-sm peer-focus:text-mars
+                      peer-focus:-top-5 peer-focus:text-sm peer-focus:text-mars
                       peer-not-placeholder-shown:-top-3 peer-not-placeholder-shown:text-sm"
                   >
                     Mensaje
