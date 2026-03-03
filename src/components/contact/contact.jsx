@@ -75,7 +75,7 @@ export default function Contact() {
                 {/* FILA 1 — NOMBRE + EMAIL */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   {/* NOMBRE */}
-                  <div className="relative bg-light-bg/20 dark:bg-dark-bg rounded-2xl transition-colors duration-300 backdrop-blur-sm">
+                  <div className="relative rounded-2xl transition-colors duration-300 backdrop-blur-sm">
                     <FaUser className="absolute left-3 top-3 h-5 w-5 z-10 text-gray-400" />
 
                     <input
@@ -91,20 +91,19 @@ export default function Contact() {
 
                     <label
                       className="absolute left-10 z-10
-    text-dark-bg-secondary dark:text-light-bg-secondary
-    pointer-events-none transition-all duration-200
-
-    top-2.5 text-base
-    peer-placeholder-shown:top-2.5 peer-placeholder-shown:text-base
-    peer-focus:-top-5 peer-focus:text-sm peer-focus:text-mars
-    peer-valid:-top-5 peer-valid:text-sm"
+                      text-dark-bg-secondary dark:text-light-bg-secondary
+                        pointer-events-none transition-all duration-200
+                        top-2.5 text-base
+                        peer-placeholder-shown:top-2.5 peer-placeholder-shown:text-base
+                        peer-focus:-top-5 peer-focus:text-sm peer-focus:text-mars
+                        peer-valid:-top-5 peer-valid:text-sm"
                     >
                       Nombre
                     </label>
                   </div>
 
                   {/* EMAIL */}
-                  <div className="relative">
+                  <div className="relative rounded-2xl transition-colors duration-300 backdrop-blur-sm">
                     <FaEnvelope className="absolute left-3 top-3 h-5 w-5 text-gray-400 z-10" />
 
                     <input
@@ -144,7 +143,7 @@ export default function Contact() {
                 </div>
 
                 {/* ASUNTO */}
-                <div className="relative">
+                <div className="relativerounded-2xl transition-colors duration-300 backdrop-blur-sm">
                   <MdSubject className="absolute left-3 top-3 h-5 w-5 text-gray-400 z-10" />
 
                   <input
@@ -174,7 +173,7 @@ export default function Contact() {
                 </div>
 
                 {/* MENSAJE */}
-                <div className="relative">
+                <div className="relative rounded-2xl transition-colors duration-300 backdrop-blur-sm">
                   <FaRegCommentDots className="absolute left-3 top-3 h-5 w-5 text-gray-400 z-10" />
 
                   <textarea

@@ -99,7 +99,7 @@ body {
 
   transform:
     rotateY(calc((var(--position) - 1) * (360deg / var(--quantity))))
-    translateZ(350px);
+    translateZ(420px);
 
   filter: drop-shadow(0 8px 12px rgba(0,0,0,0.25));
 }

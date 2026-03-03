@@ -19,6 +19,10 @@ export default function Skills() {
     "php",
     "symfony",
     "git",
+    "docker",
+    "odoo",
+    "sql",
+    "kotlin",
   ];
 
   const techInfo = {
@@ -50,7 +54,7 @@ export default function Skills() {
       nivel: "Intermedio",
       parte: "Frontend / Backend",
       color1: "#F7DF1E",
-      color2: "#F7DF1E ",
+      color2: "#F7DF1E",
     },
     php: {
       name: "PHP",
@@ -66,7 +70,7 @@ export default function Skills() {
       name: "Bootstrap",
       description: "Framework CSS orientado a componentes y diseño responsive.",
       utilidad: "Prototipado rápido y diseño web consistente.",
-      nivel: "Intermedio",
+      nivel: "Intermedio-Avanzado",
       parte: "Frontend",
       color1: "#563d7c",
       color2: "#563d7c",
@@ -101,15 +105,15 @@ export default function Skills() {
       color1: "#52c0de",
       color2: "#52c0de",
     },
-      git: {
-        name: "Git",
-        description: "Sistema de control de versiones distribuido.",
-        utilidad: "Gestión de código fuente y trabajo colaborativo.",
-        nivel: "Intermedio",
-        parte: "Herramientas",
-        color1: "#f24e29",
-        color2: "#f24e29",
-      },
+    git: {
+      name: "Git",
+      description: "Sistema de control de versiones distribuido.",
+      utilidad: "Gestión de código fuente y trabajo colaborativo.",
+      nivel: "Intermedio",
+      parte: "Herramientas",
+      color1: "#f24e29",
+      color2: "#f24e29",
+    },
     java: {
       name: "Java",
       description:
@@ -142,6 +146,49 @@ export default function Skills() {
       parte: "Backend",
       color1: "#9b4f96",
       color2: "#68217a",
+    },
+    docker: {
+      name: "Docker",
+      description:
+        "Plataforma de contenedores para el desarrollo, despliegue y ejecución de aplicaciones.",
+      utilidad:
+        "Despliegue consistente, aislamiento de aplicaciones y escalabilidad.",
+      nivel: "Intermedio",
+      parte: "Herramientas",
+      color1: "#0092bf",
+      color2: "#05a3d2",
+    },
+    odoo: {
+      name: "Odoo",
+      description:
+        "Framework ERP y CRM de código abierto para la gestión empresarial.",
+      utilidad:
+        "Gestión de ventas, compras, inventario, contabilidad y recursos humanos.",
+      nivel: "Intermedio",
+      parte: "ERP & CRM",
+      color1: "#a3468a",
+      color2: "#a3468a",
+    },
+    sql: {
+      name: "SQL",
+      description:
+        "Lenguaje estándar para la gestión de bases de datos relacionales.",
+      utilidad:
+        "Consultas, manipulación y administración de datos en sistemas de gestión de bases de datos.",
+      nivel: "Intermedio",
+      parte: "Base de Datos",
+      color1: "#0c3f65",
+      color2: "#0c3f65",
+    },
+    kotlin: {
+      name: "Kotlin",
+      description: "Lenguaje moderno y seguro para desarrollo multiplataforma.",
+      utilidad:
+        "Aplicaciones Android, backend y desarrollo de software seguro.",
+      nivel: "Básico",
+      parte: "Backend",
+      color1: "#ff8900",
+      color2: "#c756bc",
     },
   };
 
@@ -190,129 +237,166 @@ export default function Skills() {
           </h2>
         </div>
       </div>
-      <div className={`banner ${isStopped ? "paused" : ""}`}>
-        <div
-          className={`slider ${isStopped ? "stopped" : ""}`}
-          style={{
-            "--quantity": logos.length,
-            "--rotation": `${rotation}deg`,
-          }}
-        >
+      <div className="hidden lg:block">
+        <div className={`banner ${isStopped ? "paused" : ""}`}>
+          <div
+            className={`slider ${isStopped ? "stopped" : ""}`}
+            style={{
+              "--quantity": logos.length,
+              "--rotation": `${rotation}deg`,
+            }}
+          >
+            {logos.map((tech, i) => (
+              <div
+                key={i}
+                className={`item ${selectedTech === tech ? "selected" : ""}`}
+                onClick={() => handleClick(tech)}
+                style={{ "--position": i + 1 }}
+              >
+                <img src={`img/${tech}.svg`} alt={tech} />
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+      {/* Mobile + Tablet */}
+      <div className="lg:hidden px-6 py-16">
+        <div className="grid grid-cols-3 sm:grid-cols-4 gap-12 place-items-center mb-12">
           {logos.map((tech, i) => (
-            <div
+            <button
               key={i}
-              className={`item ${selectedTech === tech ? "selected" : ""}`}
-              onClick={() => handleClick(tech)}
-              style={{ "--position": i + 1 }}
+              onClick={() => setSelectedTech(tech)}
+              className={`relative w-20 h-20 sm:w-24 sm:h-24
+                   flex items-center justify-center
+                   transition-all duration-300
+                   ${selectedTech === tech ? "scale-110" : ""}`}
             >
-              <img src={`img/${tech}.svg`} alt={tech} />
-            </div>
+              <img
+                src={`img/${tech}.svg`}
+                alt={tech}
+                className="w-full h-full object-contain"
+              />
+
+              {selectedTech === tech && (
+                <div
+                  className="absolute -inset-4 rounded-full blur-2xl opacity-40"
+                  style={{
+                    background: techInfo[tech].color1,
+                  }}
+                />
+              )}
+            </button>
           ))}
         </div>
       </div>
 
       {selectedTech && (
         <div onClick={closeInfo}>
-  <div className="flex justify-center mt-12 mb-40 px-4">
-    <div
-      className="relative w-full max-w-md p-8 rounded-2xl
+          <div className="flex justify-center mt-12 mb-40 px-4">
+            <div
+              className="relative w-full max-w-md p-8 rounded-2xl
       bg-light-bg-secondary/60 dark:bg-dark-bg/60
       border border-white/20
       backdrop-blur-md shadow-2xl animate-fadeIn
       transition-all duration-300
       hover:shadow-[0_20px_60px_rgba(0,0,0,0.35)] overflow-hidden"
-      style={{
-        "--glow1": tech.color2,
-        "--glow2": tech.color1,
-      }}
-      onClick={(e) => e.stopPropagation()}
-    >
-      {/* Glow esquina superior derecha */}
-      <div
-        className="absolute -top-10 -right-10 w-60 h-60 rounded-full blur-3xl opacity-20 pointer-events-none"
-        style={{ background: "var(--glow1)" }}
-      />
+              style={{
+                "--glow1": tech.color2,
+                "--glow2": tech.color1,
+              }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* Glow esquina superior derecha */}
+              <div
+                className="absolute -top-10 -right-10 w-60 h-60 rounded-full blur-3xl opacity-20 pointer-events-none"
+                style={{ background: "var(--glow1)" }}
+              />
 
-      {/* Glow esquina inferior izquierda */}
-      <div
-        className="absolute -bottom-10 -left-10 w-40 h-40 rounded-full blur-3xl opacity-20 pointer-events-none"
-        style={{ background: "var(--glow2)" }}
-      />
+              {/* Glow esquina inferior izquierda */}
+              <div
+                className="absolute -bottom-10 -left-10 w-40 h-40 rounded-full blur-3xl opacity-20 pointer-events-none"
+                style={{ background: "var(--glow2)" }}
+              />
 
-      {/* Header */}
-      <div className="text-center mb-6 relative">
-        <h2 className="text-4xl md:text-5xl font-extrabold tracking-wide">
-          {techInfo[selectedTech].name}
-        </h2>
+              {/* Header */}
+              <div className="text-center mb-6 relative">
+                <h2 className="text-4xl md:text-5xl font-extrabold tracking-wide">
+                  {techInfo[selectedTech].name}
+                </h2>
 
-        {/* Badge */}
-        <span
-          className="inline-block mt-3 px-4 py-1 text-sm font-semibold tracking-wider uppercase rounded-full
+                {/* Badge */}
+                <span
+                  className="inline-block mt-3 px-4 py-1 text-sm font-semibold tracking-wider uppercase rounded-full
           border border-white/20"
-          style={{
-            background: "color-mix(in srgb, var(--glow1) 20%, transparent)",
-            color: "var(--glow1)",
-          }}
-        >
-          {techInfo[selectedTech].parte}
-        </span>
-      </div>
+                  style={{
+                    background:
+                      "color-mix(in srgb, var(--glow1) 20%, transparent)",
+                    color: "var(--glow1)",
+                  }}
+                >
+                  {techInfo[selectedTech].parte}
+                </span>
+              </div>
 
-      {/* Divider */}
-      <div
-        className="h-px mb-6"
-        style={{
-          background:
-            "linear-gradient(to right, transparent, var(--glow1), transparent)",
-          opacity: 0.4,
-        }}
-      ></div>
+              {/* Divider */}
+              <div
+                className="h-px mb-6"
+                style={{
+                  background:
+                    "linear-gradient(to right, transparent, var(--glow1), transparent)",
+                  opacity: 0.4,
+                }}
+              ></div>
 
-      {/* Contenido */}
-      <div className="space-y-4 text-sm leading-relaxed">
-        <div>
-          <p
-            className="text-sm uppercase tracking-wider mb-1 font-semibold"
-            style={{ color: "var(--glow1)", opacity: 0.7 }}
-          >
-            Descripción
-          </p>
-          <p className="dark:text-white">{techInfo[selectedTech].description}</p>
+              {/* Contenido */}
+              <div className="space-y-4 text-sm leading-relaxed">
+                <div>
+                  <p
+                    className="text-sm uppercase tracking-wider mb-1 font-semibold"
+                    style={{ color: "var(--glow1)", opacity: 0.7 }}
+                  >
+                    Descripción
+                  </p>
+                  <p className="dark:text-white">
+                    {techInfo[selectedTech].description}
+                  </p>
+                </div>
+
+                <div>
+                  <p
+                    className="text-sm uppercase tracking-wider mb-1 font-semibold"
+                    style={{ color: "var(--glow1)", opacity: 0.7 }}
+                  >
+                    Utilidad
+                  </p>
+                  <p className="dark:text-white">
+                    {techInfo[selectedTech].utilidad}
+                  </p>
+                </div>
+
+                <div className="flex items-center justify-between pt-4">
+                  <span
+                    className="text-sm uppercase tracking-wider font-semibold"
+                    style={{ color: "var(--glow1)", opacity: 0.7 }}
+                  >
+                    Nivel
+                  </span>
+
+                  <span
+                    className="px-3 py-1 rounded-full text-xs font-semibold border border-white/20"
+                    style={{
+                      background:
+                        "color-mix(in srgb, var(--glow2) 20%, transparent)",
+                      color: "var(--glow2)",
+                    }}
+                  >
+                    {techInfo[selectedTech].nivel}
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-
-        <div>
-          <p
-            className="text-sm uppercase tracking-wider mb-1 font-semibold"
-            style={{ color: "var(--glow1)", opacity: 0.7 }}
-          >
-            Utilidad
-          </p>
-          <p className="dark:text-white">{techInfo[selectedTech].utilidad}</p>
-        </div>
-
-        <div className="flex items-center justify-between pt-4">
-          <span
-            className="text-sm uppercase tracking-wider font-semibold"
-            style={{ color: "var(--glow1)", opacity: 0.7 }}
-          >
-            Nivel
-          </span>
-
-          <span
-            className="px-3 py-1 rounded-full text-xs font-semibold border border-white/20"
-            style={{
-              background:
-                "color-mix(in srgb, var(--glow2) 20%, transparent)",
-              color: "var(--glow2)",
-            }}
-          >
-            {techInfo[selectedTech].nivel}
-          </span>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
       )}
 
       {/* Datos rápidos */}

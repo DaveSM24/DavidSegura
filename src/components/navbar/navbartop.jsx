@@ -9,7 +9,7 @@ export default function NavbarTop() {
         download
         className="relative flex items-center gap-2
              px-4 py-2 rounded-full text-sm font-medium
-            
+            bg-light-bg/20 dark:bg-dark-bg/30
              backdrop-blur
              hover:bg-dark-bg/10 dark:hover:bg-white/10
              transition overflow-hidden"

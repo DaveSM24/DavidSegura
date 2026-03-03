@@ -49,8 +49,9 @@ export default function Navbar() {
   }, []);
 
   return (
+    
     <nav className="fixed h-full top-0 z-50">
-      <div className="hidden h-full px-6 py-16 md:flex flex-col justify-between items-center">
+      <div className="hidden h-full px-6 py-16 lg:flex flex-col justify-between items-center">
         <h1
           className="text-6xl font-bold ms-20 font-nasalization relative tracking-[0.2em]"
           style={{
