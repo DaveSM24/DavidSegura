@@ -9,8 +9,10 @@ export default function Hero() {
       className="relative min-h-screen flex flex-col justify-center items-center px-4 bottom-20"
     >
       <img
-        src="/img/david-segura.jpg"
-        loading="lazy"
+        src="/img/david-segura.webp"
+        width="192"
+        height="192"
+        fetchPriority="high"
         alt="imagen-david"
         className="glitch-img w-48 h-48 rounded-3xl object-cover mb-7"
       />
@@ -21,6 +23,7 @@ export default function Hero() {
         <a
           href="https://www.linkedin.com/in/davidsmdev/"
           name="link-linkedin"
+          aria-label="LinkedIn"
           target="_blank"
           rel="noopener noreferrer"
           className="dark:text-light-bg text-3xl hover:text-burdeos dark:hover:text-mars mx-2 transition-colors duration-300"
@@ -30,6 +33,7 @@ export default function Hero() {
         <a
           href="https://github.com/DaveSM24"
           name="link-github"
+          aria-label="GitHub"
           target="_blank"
           rel="noopener noreferrer"
           className="dark:text-light-bg text-3xl hover:text-burdeos dark:hover:text-mars mx-2 transition-colors duration-300"

@@ -253,7 +253,7 @@ export default function Skills() {
                 onClick={() => handleClick(tech)}
                 style={{ "--position": i + 1 }}
               >
-                <img src={`img/${tech}.svg`} alt={tech} />
+                <img src={`img/${tech}.svg`} alt={tech} loading="lazy" />
               </div>
             ))}
           </div>
@@ -264,6 +264,8 @@ export default function Skills() {
         <div className="grid grid-cols-3 sm:grid-cols-4 gap-12 place-items-center mb-12">
           {logos.map((tech, i) => (
             <button
+            arial-label={`Ver información sobre ${tech}`}
+              name={`btn-tech-${tech}`}
               key={i}
               onClick={() => setSelectedTech(tech)}
               className={`relative w-20 h-20 sm:w-24 sm:h-24
@@ -275,6 +277,7 @@ export default function Skills() {
                 src={`img/${tech}.svg`}
                 alt={tech}
                 className="w-full h-full object-contain"
+                loading="lazy"
               />
 
               {selectedTech === tech && (
@@ -411,6 +414,7 @@ export default function Skills() {
             src="/img/progamming.png"
             alt="Desarrollo web"
             className="w-28 h-28 object-contain mb-5"
+            loading="lazy"
           />
 
           <h3 className="text-xl font-semibold text-mars mb-3">
@@ -436,6 +440,7 @@ export default function Skills() {
             src="/img/web.png"
             alt="Responsive"
             className="w-28 h-28 object-contain mb-5"
+            loading="lazy"
           />
 
           <h3 className="text-xl font-semibold text-mars mb-3">Responsive</h3>
@@ -458,6 +463,7 @@ export default function Skills() {
             src="/img/perfil.png"
             alt="Accesibilidad"
             className="w-28 h-28 object-contain mb-5"
+            loading="lazy"
           />
 
           <h3 className="text-xl font-semibold text-mars mb-3">

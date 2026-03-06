@@ -47,6 +47,8 @@ export default function Contact() {
             >
               <span className="text-xl">davsegmar@gmail.com</span>
               <button
+                name="btn-copy-email"
+                arial-label="Copiar correo electrónico"
                 onClick={() =>
                   navigator.clipboard.writeText("davsegmar@gmail.com")
                 }
@@ -213,6 +215,8 @@ export default function Contact() {
 
                 {/* BOTÓN */}
                 <button
+                  name="btn-submit-contact"
+                  arial-label="Enviar mensaje de contacto"
                   type="submit"
                   disabled={state.submitting}
                   className="w-full py-3 bg-mars text-white rounded-2xl font-semibold 

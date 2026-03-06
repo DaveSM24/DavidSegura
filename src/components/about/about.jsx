@@ -60,7 +60,7 @@ export default function About() {
 
           <div className="relative group flex justify-center">
             <img
-              src="/img/david-chibi.png"
+              src="/img/david-chibi.webp" loading="lazy"
               alt="Chibi programando"
               className="
             relative z-10 w-64 md:w-72 md:-top-10 md:left-7

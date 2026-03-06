@@ -78,7 +78,7 @@ export default {
       },
       fontFamily: {
         nasalization: ['nasalization', 'system-ui', 'sans-serif'],
-        sans: ['Ubuntu', 'system-ui', 'sans-serif']
+        sans: ['ubuntu', 'system-ui', 'sans-serif']
       }
     }
   },
